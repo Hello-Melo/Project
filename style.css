@@ -1,0 +1,27 @@
+.box1{
+display : flex;
+height:  60px;
+padding:  6px;
+align-items: center;
+box-sizing: border-box;
+}
+
+a.ibox1{ 
+    
+    padding: 5px;
+    margin : 0.5px;
+    corlor: black;
+
+    text-decoration: none;
+    cursor : pointer;
+}
+
+a.ibox2{ 
+    display:inline-block;
+    padding: 5px;
+    margin : 0.5px;
+    corlor: black;
+
+    text-decoration: none;
+    cursor : pointer;
+}
