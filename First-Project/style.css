@@ -1,27 +1,26 @@
-.box1{
-display : flex;
-height:  60px;
-padding:  6px;
-align-items: center;
-box-sizing: border-box;
+body{
+    display:contents;
 }
 
-a.ibox1{ 
-    
-    padding: 5px;
-    margin : 0.5px;
-    corlor: black;
-
-    text-decoration: none;
-    cursor : pointer;
+.navitem{ 
+     text-decoration: none;
+   color : black;
+   margin-right: 15px;
+}
+ .navitem:hover{
+      text-decoration: underline;
 }
 
-a.ibox2{ 
-    display:inline-block;
-    padding: 5px;
-    margin : 0.5px;
-    corlor: black;
+.navbar{
+    float:right;  /*float는 정렬할때 쓰는 태그*/
+    /* border:1px solid red; */  /*border는 박스를 그려주는 명령어 유용하다!*/
+    margin : 20px;
+}
 
-    text-decoration: none;
-    cursor : pointer;
+.mainBox{
+    margin-top:  200px;    
+    text-align: center;
+    }
+.input-area{
+    margin-top: 20px;
 }
