@@ -1,26 +1,112 @@
-body{
-    display:contents;
+body {
+  display: contents;
 }
 
-.navitem{ 
-     text-decoration: none;
-   color : black;
-   margin-right: 15px;
+.navitem {
+  text-decoration: none;
+  color: black;
+  margin-right: 15px;
 }
- .navitem:hover{
-      text-decoration: underline;
-}
-
-.navbar{
-    float:right;  /*float는 정렬할때 쓰는 태그*/
-    /* border:1px solid red; */  /*border는 박스를 그려주는 명령어 유용하다!*/
-    margin : 20px;
+.navitem:hover {
+  text-decoration: underline;
 }
 
-.mainBox{
-    margin-top:  200px;    
-    text-align: center;
+.navbar {
+  float: right; /*float는 정렬할때 쓰는 태그*/
+  /* border:1px solid red; */ /*border는 박스를 그려주는 명령어 유용하다!*/
+  margin: 20px;
+}
+
+.mainBox {
+  margin-top: 200px;
+  text-align: center;
+}
+.input-area {
+  margin-top: 20px;
+}
+.input-box {
+  width: 584px;
+  height: 46px;
+  border-radius: 24px;
+  border: 1px solid #dfe1e5;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.search-icon {
+  position: relative;
+  left: 40px;
+  color: #9aa0a6;
+}
+.search-icon2 {
+  position: relative;
+  right: 40px;
+}
+.button-area{
+    padding-top:18px;
+}
+.button-style{
+    height:36px;
+
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    font-family: Apple SD Gothic Neo,arial,sans-serif;
+    font-size: 14px;
+    margin: 20px 10px; /*padding처럼 2개의 값이면 첫번째는 위아래, 2번째는 좌우 값을 의미한다*/
+    padding: 0 16px;  /* padding에 값이1개면 네뱡향(전후좌우)다 같은 값, 2개면  처음값은 위아래, 2번째값은 좌우, 4개면 위아래좌우까지 4방향 값을 의미*/
+    /* line-height: 27px; */
+    /* min-width: 54px; */
+    /* text-align: center; */
+    cursor: pointer;
+    /* user-select: none; */
+}
+
+.button-style:hover{
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #202124;
+}
+
+.mainitem{
+    text-decoration: none;
+    color: #0097e6;
+    margin-right: 15px;
+}
+.mainitem:hover{
+    text-decoration: underline;
+}
+
+.footer{ 
+    position: absolute;    /* absolute는 절대값, reletive는 있떤 위치 기준*/
+    bottom:0px;
+    background-color:  #f2f2f2;
+    width:100%;
+}
+
+.first-line{
+    padding: 15px 30px;
+    border-bottom: 1px solid #dadce0;;
+    font-size: 15px;
+    color: #70757a;
+}
+.second-line{
+    padding: 15px 30px;
+     font-size: 15px;
+    color: #70757a;
+}
+
+.footer-item{
+    text-decoration: none;
+    margin-right: 15px;
+    color: #70757a;
+    font-size: 15px;
+}
+.footer-item:hover{
+    text-decoration: underline;
+}
+
+.footer-bar{
+    float:right;
     }
-.input-area{
-    margin-top: 20px;
-}
