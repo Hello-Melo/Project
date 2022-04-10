@@ -26,6 +26,8 @@ public class ShootingGame extends JFrame {
 	public boolean isMainScreen, isLoadingScreen, isGameScreen;
 
 	public static Game game = new Game();
+	
+	private Audio backGroundMusic;
 
 	public ShootingGame() {
 		setTitle("Shooting Game"); // 제목
@@ -44,6 +46,9 @@ public class ShootingGame extends JFrame {
 		isMainScreen = true;
 		isLoadingScreen = false;
 		isGameScreen = false;
+		
+		backGroundMusic = new Audio("src/audio/menuBGM.wav", true);
+		backGroundMusic.start();
 
 		addKeyListener(new KeyListener()); // 메인화면에서 사용될 키 메서드
 	}
@@ -54,15 +59,17 @@ public class ShootingGame extends JFrame {
 
 		Timer loadingTimer = new Timer();
 		TimerTask loadingTask = new TimerTask() {
-
+	
+			
 			@Override
 			public void run() {
+				backGroundMusic.stop();
 				isLoadingScreen = false;
 				isGameScreen = true;
+				game.start(); // 만들어진 Game 클래스의 스래드를 실행하기 위한 코드
 			}
 		};
 		loadingTimer.schedule(loadingTask, 3000);
-		game.start(); // 만들어진 Game 클래스의 스래드를 실행하기 위한 코드
 	}
 
 	public void paint(Graphics g) { // 버퍼 이미지를 만들어서 뿌려줌 -> 화면 깜빡임 최소화
@@ -113,6 +120,11 @@ public class ShootingGame extends JFrame {
 			case KeyEvent.VK_ESCAPE: // esc 버튼을 누르면 시스템이 종료되는 메서드임!
 				System.exit(0);
 				break;
+			case KeyEvent.VK_R: // R을 누르면 게임 리셋
+				if(game.isOver()) game.reset(); // 만약 isOver가 트루일때만 리셋 메서드 실행하도록
+				
+				break;
+				
 				}
 			}
 		
