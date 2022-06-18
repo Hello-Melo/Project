@@ -11,6 +11,7 @@ public class Enermy {
 	int width = image.getWidth(null);
 	int height = image.getHeight(null);
 	int enemy_hp = 10;
+
 	
 	public Enermy(int x, int y) {
 		this.x = x;

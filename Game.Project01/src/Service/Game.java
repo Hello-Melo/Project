@@ -25,6 +25,7 @@ public class Game extends Thread {
 	private int score; // 점수를 체크할 변수
 	
 	
+	
 
 	private Image player = new ImageIcon("src/images/player.png").getImage();
 
