@@ -42,8 +42,10 @@ public class Game extends Thread {
 	// 플레이어의 공격을 담을 arraylist
 	ArrayList<PlayerAttack> playerAttackList = new ArrayList<PlayerAttack>();
 	ArrayList<Enermy> enermyList = new ArrayList<Enermy>();
-			
+	ArrayList<Boss> bossList = new ArrayList<Boss>();
+	
 	ArrayList<EnermyAttack> enermyAttackList = new ArrayList<EnermyAttack>();
+	ArrayList<BossAttack> bossAttackList = new ArrayList<BossAttack>();
 	// 변수선언
 	private PlayerAttack playerAttack;
 	private Enermy enermy;
@@ -152,6 +154,21 @@ public class Game extends Thread {
 			enermyList.add(enermy);
 			}
 		}
+	
+	//보스 출현 조건 및 적들 제거
+	private void bossAppearProcess() {
+		if(score >= 10000) {
+			Boss boss = new Boss(1120, 1120);
+			enermyList.clear();
+			bossList.add(boss);
+		}
+	}
+	
+	
+	private void bossMoveProcess() {
+		
+		
+	}
 	
 	private void enermyMoveProcess() { //적의 움직임을 관장하는 메서드
 		for(int i = 0; i <enermyList.size() ; i++) {
