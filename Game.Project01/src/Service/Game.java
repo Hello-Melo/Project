@@ -55,6 +55,7 @@ public class Game extends Thread {
 	private Audio backGroundMusic;
 	private Audio hitSound;
 	
+	private Boss boss;
 	
 	@Override
 	public void run() {
@@ -158,15 +159,18 @@ public class Game extends Thread {
 	//보스 출현 조건 및 적들 제거
 	private void bossAppearProcess() {
 		if(score >= 10000) {
-			Boss boss = new Boss(1120, 1120);
 			enermyList.clear();
+			boss = new Boss(1120, 1120);
 			bossList.add(boss);
 		}
 	}
 	
 	
 	private void bossMoveProcess() {
-		
+		for(int i = 0; i < bossList.size() ; i++) {
+			boss = bossList.get(i);
+			boss.move();
+		}
 		
 	}
 	
