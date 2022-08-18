@@ -75,12 +75,15 @@ public class Game extends Thread {
 						Thread.sleep(delay - System.currentTimeMillis() + pretime);
 						keyProcess();
 						playerAttackProcess();
+						if(bossList == null) {
 						enermyAppearProcess();
 						enermyMoveProcess();
 						enermyAttackProcess();
+						}else if(score >= 12000) {
 						bossAppearProcess();
 						bossMoveProcess();
 						bossAttackProcess();
+						}
 						cnt++;
 					} catch (InterruptedException e) { // try catch 문으로 sleep을 주고 에러 뜰시 예외!
 						e.printStackTrace();
@@ -145,29 +148,31 @@ public class Game extends Thread {
 					score += 1000;
 				}
 			}
-			
-			for (int j = 1; j < 2; j++) {
-				boss = bossList.get(j);
-				if (playerAttack.x > boss.x && playerAttack.x < boss.x + boss.wdith && playerAttack.y > boss.y
-						&& playerAttack.y < boss.y + boss.height) {
-					boss.boss_hp -= playerAttack.attack;
-					playerAttackList.remove(playerAttack);
-				}
-				if (boss.boss_hp <= 0) {
-					hitSound.start();
-					enermyList.remove(enermy);
-					isOver = true;
+			if(enermyList == null) {
+				for (int j = 1; j < 2; j++) {
+					boss = bossList.get(j);
+					if (playerAttack.x > boss.x && playerAttack.x < boss.x + boss.wdith && playerAttack.y > boss.y
+							&& playerAttack.y < boss.y + boss.height) {
+						boss.boss_hp -= playerAttack.attack;
+						playerAttackList.remove(playerAttack);
+					}
+					if (boss.boss_hp <= 0) {
+						hitSound.start();
+						bossList.remove(boss);
+						isOver = true;
+					}
 				}
 			}
-			
 			
 		}
 	}
 
 	private void enermyAppearProcess() { // 적 출현빈도 메서드
 		if (cnt % 80 == 0) {
+			if(bossList == null) {
 			enermy = new Enermy(1120, (int) (Math.random() * 621));
 			enermyList.add(enermy);
+			}
 		}
 	}
 
@@ -175,8 +180,10 @@ public class Game extends Thread {
 	private void bossAppearProcess() {
 		if (score >= 12000) {
 			enermyList.clear();
+			for(int i = 1 ; i <2; i++) {
 			boss = new Boss(1120, 1120);
 			bossList.add(boss);
+			}
 		}
 	}
 
@@ -283,10 +290,12 @@ public class Game extends Thread {
 
 	public void bossDraw(Graphics g) {
 		for(int i = 1 ; i < 2 ; i++) {
+			if(enermyList == null) {
 			boss = bossList.get(i);
 			g.drawImage(boss.image, boss.x, boss.y, null);
 			g.setColor(Color.DARK_GRAY);
 			g.fillRect(boss.x + 1, boss.y - 40, boss.boss_hp * 15, 20);
+		}
 		}
 		for(int i = 0 ; i < bossAttackList.size() ; i++) {
 			bossAttack = bossAttackList.get(i);
