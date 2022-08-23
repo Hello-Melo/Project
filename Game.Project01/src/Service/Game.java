@@ -79,7 +79,7 @@ public class Game extends Thread {
 						enermyAppearProcess();
 						enermyMoveProcess();
 						enermyAttackProcess();
-						}else if(score >= 12000) {
+						}else if(bossList != null && score >= 12000) {
 						bossAppearProcess();
 						bossMoveProcess();
 						bossAttackProcess();
